@@ -1,13 +1,13 @@
 const request = require("supertest");
 const app = require("../src/app");
 
-describe("Jenkins CI/CD API", () => {
+describe("Terraform Node.js API", () => {
 
     test("GET /", async () => {
         const response = await request(app).get("/");
 
         expect(response.statusCode).toBe(200);
-        expect(response.body.application).toBe("Jenkins CI/CD API");
+        expect(response.body.application).toBe("Terraform Node.js API");
     });
 
     test("GET /health", async () => {
@@ -15,13 +15,16 @@ describe("Jenkins CI/CD API", () => {
 
         expect(response.statusCode).toBe(200);
         expect(response.body.status).toBe("Healthy");
+        expect(response.body.service).toBe("Terraform Node.js API");
     });
 
     test("GET /deployment", async () => {
         const response = await request(app).get("/deployment");
 
         expect(response.statusCode).toBe(200);
-        expect(response.body.pipeline).toBe("Jenkins");
+        expect(response.body.infrastructure).toBe("Terraform");
+        expect(response.body.provider).toBe("Docker");
+        expect(response.body.deployment).toBe("Provisioned");
     });
 
 });
