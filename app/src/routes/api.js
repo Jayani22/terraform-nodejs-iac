@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
     res.status(200).json({
-        application: "Jenkins CI/CD API",
+        application: "Terraform Node.js API",
         version: "1.0.0",
         status: "Running"
     });
@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
 router.get("/health", (req, res) => {
     res.status(200).json({
         status: "Healthy",
-        service: "Jenkins CI/CD API",
+        service: "Terraform Node.js API",
         uptime: process.uptime(),
         timestamp: new Date().toISOString()
     });
@@ -21,9 +21,9 @@ router.get("/health", (req, res) => {
 
 router.get("/deployment", (req, res) => {
     res.status(200).json({
-        pipeline: "Jenkins",
-        deployment: "Ready",
-        timestamp: new Date().toISOString()
+        infrastructure: "Terraform",
+        provider: "Docker",
+        deployment: "Provisioned"
     });
 });
 
