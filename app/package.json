@@ -1,5 +1,5 @@
 {
-  "name": "jenkins-cicd-api",
+  "name": "terraform-nodejs-iac",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
